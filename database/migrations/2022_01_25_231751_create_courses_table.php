@@ -20,7 +20,7 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('name');
-            $table->string('slot');
+            $table->string('slug');
             $table->text('image');
             $table->text('description');
             $table->timestamps();
