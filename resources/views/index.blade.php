@@ -6,4 +6,9 @@
         <h2 class="text-xl text-gray-600">Fórmate online como profesional en tecnología</h2>
         <h3 class="text-lg text-green-600">70% de los graduados duplica sus ingresos</h3>
     </div>
+
+    @php
+        $user = "Alexis";
+    @endphp
+    @livewire('course-list', ['user' => $user], key($user->id))
 @endsection

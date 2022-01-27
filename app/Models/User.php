@@ -58,4 +58,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    // Crear un campo virtual, que sera una imagen avatar
+    public function getAvatarAttribute()
+    {
+        // gravatar api
+        $email = md5($this->email);
+        return "https://s.gravatar.com/avatar/$email";
+    }
 }
