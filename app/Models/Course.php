@@ -19,4 +19,18 @@ class Course extends Model
     {
         return substr($this->description, 0, 80 ) . "...";
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    // Metodo que retorna dos(2) cursos del mismo usuario(autor) que tienen la misma categoria
+    public function similar()
+    {
+        return $this->where('category_id', $this->category_id)
+            ->with('user')
+            ->take(2)
+            ->get();
+    }
 }
